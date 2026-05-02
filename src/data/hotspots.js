@@ -484,3 +484,4 @@ export const HOTSPOTS = [
 ]
 
 export const FEATURED_HOTSPOTS = HOTSPOTS.filter(h => h.featured)
+
