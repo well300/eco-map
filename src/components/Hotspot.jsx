@@ -1,8 +1,6 @@
 import { useRef, useState, useCallback } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Html } from '@react-three/drei'
 import * as THREE from 'three'
-import { HotspotIcon } from '../data/icons.jsx'
 
 const DOT_COLOR  = new THREE.Color('#ffffff')
 const RING_COLOR = new THREE.Color('#ffffff')
@@ -112,39 +110,6 @@ export function Hotspot({ data, isActive, onClick }) {
           at camera z=4  (zoomed in) → scale = 1.0 → normal CSS size
         This means labels are large at overview and shrink naturally as you zoom in.
       */}
-      <Html
-        center
-        position={[0, 0.70, 0]}
-        style={{ pointerEvents: 'auto' }}
-        zIndexRange={[1, 1]}
-        sprite
-      >
-        <div
-          onClick={() => onClick(data)}
-          onMouseEnter={() => { document.body.style.cursor = 'pointer' }}
-          onMouseLeave={() => { document.body.style.cursor = 'grab' }}
-          style={{
-            background: isActive ? '#283e3b' : '#fff',
-            border: `1.5px solid ${isActive ? '#283e3b' : '#ccc'}`,
-            borderRadius: '10px',
-            padding: '5px 12px 5px 9px',
-            color: isActive ? '#fff' : '#283e3b',
-            fontSize: '13px',
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 700,
-            whiteSpace: 'nowrap',
-            letterSpacing: '0.01em',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px',
-            userSelect: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          <HotspotIcon name={data.icon} size={14} color={isActive ? '#fff' : '#283e3b'} />
-          {data.label}
-        </div>
-      </Html>
     </group>
   )
 }
